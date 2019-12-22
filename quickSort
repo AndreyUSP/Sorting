@@ -1,6 +1,5 @@
 public static void quickSort(){
-    int start = 0;
-    int end = array.length - 1;
+    doSort(0, array.length - 1);
 }
 private static void doSort(int start, int end){
 if(start >= end) return;
