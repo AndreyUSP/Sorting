@@ -1,0 +1,39 @@
+package com.javarush.task.task09.task0923;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/* 
+Гласные и согласные
+*/
+
+public class Solution {
+    public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fraze = reader.readLine();
+        char[] arr = fraze.toCharArray();
+        String sb = "";
+        String sb1 = "";
+        /*Еще пару способов удалить все пробелы из строки: (upd: ниже о них уже писали...)
+         // с регулярным выражением, все символы пробела, табуляции и др. в любых количествах*/
+        for(char s : arr) {
+            if(s==' ') continue;
+            if(isVowel(s)) sb+=s+" ";
+            else sb1+=s + " ";
+    }
+         System.out.println(sb);System.out.println(sb1);
+    }
+
+    // метод проверяет, гласная ли буква
+    public static boolean isVowel(char c) {
+        c = Character.toLowerCase(c);  // приводим символ в нижний регистр - от заглавных к строчным буквам
+        for (char d : vowels) {  // ищем среди массива гласных
+            if (c == d) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
